@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <script src="signup.js"></script>
+</head>
+<style>
+    #container {
+        border: 1px solid;
+        width: 700px;
+        margin: 0px auto;
+    }
+    #head {
+        text-align: center;
+        margin: 40px auto;
+    }
+    #sec {
+        margin:0px auto;
+        padding: 0px 75px 0px;
+        
+    }
+    .txt {
+        margin: 30px 0px;
+        width: 200px;
+        height: 30px;
+        font-size: 15px;
+    }
+    .text {
+        font-size: 17px;
+        font-weight: 550;
+        margin-bottom: 0px;
+    }
+    #complete {
+        margin: 40px auto;
+        text-align: center;
+        width: 300px;
+    }
+    .complete {
+        height: 60px;
+        width: 130px;
+        margin: 0px 5px;
+        font-size: 20px;
+    }
+
+</style>
+<body>
+    <div id="container">
+    <form>
+        <div id="head">
+            <h1>회원가입</h2>
+        </div>
+        <div id="sec">    
+            <div id="name">
+                <label>
+                <span class="text"><span style="color: red;">*</span>성명</span><span id="namedemo" style="font-size:14px; color: red;"></span><br/>
+                <input type="text" id="txtname" name="txtname" class="txt" placeholder="성명을 입력해주세요." style="margin-top:5px;" maxlength="8"  autofocus></label>
+                
+            </div>
+            <div id="age">
+                <label>
+                <span class="text"><span style="color: red;">*</span>주민등록번호</span><span id="agedemo" style="font-size:14px; color: red;"></span><br/>
+                <input type="text" id=txtage name="txtage" class="txt" style="margin-top:5px"  maxlength="6" ></label> -
+                <input type="password" id=txtageback name="txtage" class="txt" style="margin-top:5px"  maxlength="7" >
+            </div>
+            <div id="id">
+                <label>
+                <span class="text"><span style="color: red;">*</span>아이디</span><span id="iddemo" style="font-size:14px; color: red;"></span><br/>
+                <input type="id" id="txtid" name="txtid" class="txt" placeholder="아이디를 입력해주세요." style="margin-top:5px"  /></label>
+                <input type="button" id="idcheck" name="idcheck" value="중복확인"/>
+            </div>
+            <div id="pwd">
+                <label>
+                <span class="text"><span style="color: red;">*</span>비밀번호</span><span id="pwddemo" style="font-size:14px; color: red;"></span><br/>
+                <input type="password" id="txtpwd" name="txtpwd" class="txt" placeholder="8~20자" style="margin-top:5px"  maxlength="20" /></label><br/>
+                <span class="text"><span style="color: red;">*</span>비밀번호 확인</span><span id="pwdcheckdemo" style="font-size:14px; color: red;"></span><br/>
+                <input type="password" id="pwdcheck" name="pwdcheck" class="txt" placeholder="비밀번호 확인" style="margin-top:5px" />
+            </div>
+            <div id="mail">
+                <label>
+                <span class="text"><span style="color: red;">*</span>이메일</span><span id="maildemo" style="font-size:14px; color: red;"></span><br/>
+                <input type="text" id="txtmail" name="txtmail" class="txt" style="margin-top:5px" /></label> @
+                <input type="text" id="txtmail2" name="txtmail2" class="txt" placeholder="직접입력" style="margin-top:5px" />
+                <select name="btnmail" id="btnmail" onchange="onmail()">
+                    <option value="naver.com">
+                        naver.com
+                    </option>
+                    <option value="daum.net">
+                        daum.net
+                    </option>
+                    <option value="google.com">
+                        google.com
+                    </option>
+                    <option value="nate.com">
+                        nate.com
+                    </option>
+                </select>
+            </div>
+            <div id="tel">
+                <label>
+                <span class="text">전화번호</span><br/>
+                <input type="tel" id="txttel" name="txttel" class="txt" style="margin-top:5px"/></label>
+            </div>
+            <div id="address">
+                <label>
+                <span class="text">주소</span><br/>
+                <input type="address" id="txtaddress" name="txtaddress" class="txt" style="margin:5px auto; width:400px"  ></label>
+                <input type="button" id="btnaddress" name="btnaddress"  value="주소검색"><br/>
+                <input type="address" id="txtaddress" name="txtaddress" class="txt" placeholder="상세주소" style="margin:5px auto; width:400px">
+            </div>
+            <div id="complete">
+                <input type="button" id="ok" class="complete" value="가입하기" onclick="complete()"/>
+                <input type="reset" id="reset" class="complete" value="취소하기"/>
+            </div>
+        </div>
+    </form>
+    </div>
+</body>
+</html>
