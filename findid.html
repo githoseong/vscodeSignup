@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입</title>
+    <title>findid</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -13,8 +13,17 @@
     <script src="https://kit.fontawesome.com/fa3667321f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="signup.js"></script>
-    
+    <script>
+        function w3_open() {
+        document.getElementById("mySidebar").style.width = "100%";
+        // document.getElementById("mySidebar").style.height = "100%";
+        document.getElementById("mySidebar").style.display = "block";
+        }   
+
+        function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        }
+    </script>
 </head>
 <style>
     header {
@@ -110,63 +119,43 @@
         text-decoration: none;
     }
     #section {
-        border: 1px solid;
-        width: 700px;
-        margin: 200px auto;
+        width: 800px;
+        margin: 250px auto;
         color:rgb(12, 12, 51);
     }
-    #head2 {
+    #login {
         text-align: center;
-        margin: 40px auto;
+        margin-bottom: 50px;
     }
-    #sec2 {
-        margin:0px auto;
-        padding: 0px 75px 0px;
-        
+    .txtinput {
+        text-align: left;
+        margin: 20px auto;
+        width: 500px;
+    }
+    #txtinput {
+        text-align: center;
     }
     .txt {
-        margin: 30px 0px;
-        width: 200px;
-        height: 30px;
+        font-weight: 1000;
+    }
+    .idpwd {
+        width:500px;
+        height: 40px;
         font-size: 15px;
+        margin: 10px auto;
     }
-    .text {
+    .btn {
+        width: 500px;
+        height: 48px;
         font-size: 17px;
-        font-weight: 550;
-        margin-bottom: 0px;
-    }
-    #complete {
-        margin: 40px auto;
-        text-align: center;
-        width: 400px;
-    }
-    .complete {
-        height: 60px;
-        width: 150px;
-        margin: 0px 5px;
-        font-size: 18px;
         color: rgb(249, 249, 250);
+        margin: 10px 3px 25px;
         background-color: rgb(12,12,51);
         border: 0ch;
     }
-    .complete:hover {
-        opacity: 0.8;
-        cursor: pointer;
-    }
-    #chk {  
-        margin: 50px 0px 30px;
-    }
-    .btn {
-        color: rgb(12,12,51);
-        font-size: 13px;
-        background-color: rgb(241, 239, 239);
-        border: 1px solid;
-        width: 70px;
-        padding: 3px;
-    }
     .btn:hover {
-        opacity: 0.8;
         cursor: pointer;
+        opacity: 0.8;
     }
     #footer {
         margin: 200px auto 0px;
@@ -290,82 +279,22 @@
         </header>
     </div>
     <div id="section">
-    <form id="myform">
-        <div id="head2">
-            <h2 style="font-weight: bold;">회원가입</h2>
+        <form>    
+        <div id="login">
+            <h3 style="font-weight:bold">아이디ㆍ비밀번호 찾기</h2>
         </div>
-        <div id="sec2">    
-            <div id="name">
-                <label>
-                <span class="text"><span style="color: red;">*</span>성명</span><span id="namedemo" style="font-size:14px; color: red;"></span><br/>
-                <input type="text" id="txtname" name="txtname" class="txt" placeholder="성명을 입력해주세요." onblur="blurname();" style="margin-top:5px;" maxlength="8"  autofocus></label>
-                
-            </div>
-            <div id="age">
-                <label>
-                <span class="text"><span style="color: red;">*</span>주민등록번호</span><span id="agedemo" style="font-size:14px; color: red; position: absolute;"></span><br/>
-                <input type="text" id=txtage name="txtage" class="txt" style="margin-top:5px"  onkeyup="juCheck()"  maxlength="6" ></label> -
-                <input type="password" id=txtageback name="txtage" class="txt" style="margin-top:5px" onblur="blurage();" maxlength="7" >
-            </div>
-            <div id="id">
-                <label>
-                <span class="text"><span style="color: red;">*</span>아이디</span><span id="iddemo" style="font-size:14px; color: red; position: absolute;"></span><br/>
-                <input type="id" id="txtid" name="txtid" class="txt" placeholder="아이디를 입력해주세요." onblur="blurid();" style="margin-top:5px"  /></label>
-                <input type="button" id="idcheck" name="idcheck" class="btn" value="중복확인"/>
-            </div>
-            <div id="pwd">
-                <label>
-                <span class="text"><span style="color: red;">*</span>비밀번호</span><span id="pwddemo" style="font-size:14px; color: red;"></span><br/>
-                <input type="password" id="txtpwd" name="txtpwd" class="txt" placeholder="8~20자" style="margin-top:5px" onblur="blurpwd();" maxlength="20" /></label><br/>
-                <span class="text"><span style="color: red;">*</span>비밀번호 확인</span><span id="pwdcheckdemo" style="font-size:14px; color: red;"></span><br/>
-                <input type="password" id="pwdcheck" name="pwdcheck" class="txt" placeholder="비밀번호 확인" onblur="blurpwd();" style="margin-top:5px" />
-            </div>
-            <div id="mail">
-                <label>
-                <span class="text"><span style="color: red;">*</span>이메일</span><span id="maildemo" style="font-size:14px; color: red; position: absolute;"></span><br/>
-                <input type="text" id="txtmail" name="txtmail" class="txt" onblur="blurmail();" style="margin-top:5px" /></label> @
-                <input type="text" id="txtmail2" name="txtmail2" class="txt" placeholder="직접입력" onblur="blurmail();" style="margin-top:5px" />
-                <select name="btnmail" id="btnmail" onchange="onmail()">
-                    <option value="선택">
-                        선택
-                    </option>
-                    <option value="naver.com">
-                        naver.com
-                    </option>
-                    <option value="daum.net">
-                        daum.net
-                    </option>
-                    <option value="google.com">
-                        google.com
-                    </option>
-                    <option value="nate.com">
-                        nate.com
-                    </option>
-                </select>
-            </div>
-            <div id="tel">
-                <label>
-                <span class="text">전화번호</span><span id="teldemo" style="font-size:14px; color: red;"></span><br/>
-                <input type="tel" id="txttel" name="txttel" class="txt" style="margin-top:5px"/></label>
-            </div>
-            <div id="address">
-                <span class="text">주소</span><br/>
-                <input type="text" id="txtaddress" name="txtaddress" class="txt" style="margin:5px auto; width:150px" placeholder="우편번호" >
-                <input type="button" id="btnaddress" name="btnaddress"  class="btn" value="주소검색" onclick="search()"><br/>
-                <input type="text" id="txtaddress1" name="txtaddress1" class="txt" style="margin:5px auto; width:400px"  >
-                <input type="text" id="txtaddress2" name="txtaddress2" class="txt" placeholder="상세주소" style="margin:5px auto; width:400px" >
-            </div>
-            <div id="check">
-                <input type="checkbox" id="chk" name="chk"/>
-                <span class="text">약관에 동의 하시면 체크를 해주세요.</span>
-                <input type="button" id="btnchk" name="btnchk" class="btn" value="약관보기" onclick="newwin()">
-            </div>
-            <div id="complete">
-                <input type="button" id="ok" class="complete"  value="가입하기" onclick="complete()"/>
-                <input type="reset" id="reset" class="complete"  value="취소하기"/>
-            </div>
-        </div>
-    </form>
+        <div class="txtinput">
+            <label for="txtid"><span class="txt">아이디 찾기</span><br/></label>
+            <input type="text" id="txtmail" name="txtid" class="idpwd" placeholder="Email을 입력해주세요"/><br/>
+            <input type="button" id="btnlogin" name="btnlogin" class="btn" value="아이디 찾기">
+        </div>   
+        <div class="txtinput">
+            <label for="txtpwd"><span class="txt">비밀번호 찾기</span><br/></label>
+            <input type="text" id="txtid" name="txtpwd" class="idpwd" placeholder="ID를 입력해주세요"/>
+            <input type="text" id="txtmail2" name="txtpwd" class="idpwd" placeholder="Email을 입력해주세요"/>
+            <input type="button" id="btnsignup" name="btnlogin" class="btn" value="비밀번호 찾기">
+        </div> 
+        </form>
     </div>
     <div id="footer">
         <footer>
